@@ -4,9 +4,9 @@ dependencies:
   config:
     - field.field.media.video.field_file_size
     - field.field.media.video.field_media_of
+    - field.field.media.video.field_media_use
     - field.field.media.video.field_media_video_file
     - field.field.media.video.field_mime_type
-    - field.field.media.video.field_tags
     - media.type.video
   module:
     - file
@@ -54,7 +54,7 @@ content:
     settings:
       link_to_entity: false
     third_party_settings: {  }
-  field_tags:
+  field_media_use:
     type: entity_reference_label
     weight: 5
     region: content

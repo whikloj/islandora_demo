@@ -4,9 +4,9 @@ dependencies:
   config:
     - field.field.media.video.field_file_size
     - field.field.media.video.field_media_of
+    - field.field.media.video.field_media_use
     - field.field.media.video.field_media_video_file
     - field.field.media.video.field_mime_type
-    - field.field.media.video.field_tags
     - media.type.video
   module:
     - file
@@ -38,7 +38,7 @@ content:
     third_party_settings: {  }
     type: file_generic
     region: content
-  field_tags:
+  field_media_use:
     type: entity_reference_autocomplete
     weight: 3
     region: content
@@ -78,6 +78,8 @@ content:
   translation:
     weight: 10
     region: content
+    settings: {  }
+    third_party_settings: {  }
   uid:
     type: entity_reference_autocomplete
     weight: 4

@@ -5,8 +5,8 @@ dependencies:
     - field.field.media.file.field_file_size
     - field.field.media.file.field_media_file
     - field.field.media.file.field_media_of
+    - field.field.media.file.field_media_use
     - field.field.media.file.field_mime_type
-    - field.field.media.file.field_tags
     - media.type.file
   module:
     - file
@@ -38,7 +38,7 @@ content:
       size: 60
       placeholder: ''
     third_party_settings: {  }
-  field_tags:
+  field_media_use:
     type: entity_reference_autocomplete
     weight: 3
     region: content
@@ -78,6 +78,8 @@ content:
   translation:
     weight: 10
     region: content
+    settings: {  }
+    third_party_settings: {  }
   uid:
     type: entity_reference_autocomplete
     weight: 4
