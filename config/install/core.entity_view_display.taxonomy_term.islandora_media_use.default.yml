@@ -2,7 +2,7 @@ langcode: en
 status: true
 dependencies:
   config:
-    - field.field.taxonomy_term.islandora_media_use.field_external_uri_single
+    - field.field.taxonomy_term.islandora_media_use.field_external_uri
     - taxonomy.vocabulary.islandora_media_use
   module:
     - link
@@ -19,7 +19,7 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
-  field_external_uri_single:
+  field_external_uri:
     weight: 1
     label: above
     settings:

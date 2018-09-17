@@ -2,12 +2,12 @@ langcode: en
 status: true
 dependencies:
   config:
-  - field.field.taxonomy_term.islandora_models.field_external_uri_single
-  - taxonomy.vocabulary.islandora_models
+    - field.field.taxonomy_term.islandora_models.field_external_uri
+    - taxonomy.vocabulary.islandora_models
   module:
-  - link
-  - path
-  - text
+    - link
+    - path
+    - text
 id: taxonomy_term.islandora_models.default
 targetEntityType: taxonomy_term
 bundle: islandora_models
@@ -21,7 +21,7 @@ content:
       placeholder: ''
       rows: 5
     third_party_settings: {  }
-  field_external_uri_single:
+  field_external_uri:
     weight: 2
     settings:
       placeholder_url: ''

@@ -7,14 +7,14 @@ dependencies:
     - taxonomy.vocabulary.islandora_models
   enforced:
     module:
-    - islandora_demo
+      - islandora_demo
 id: node.islandora_object.field_model
 field_name: field_model
 entity_type: node
 bundle: islandora_object
 label: Model
 description: 'This is the "type" of resource, this does affect how it is displayed/viewed.'
-required: false
+required: true
 translatable: false
 default_value: {  }
 default_value_callback: ''

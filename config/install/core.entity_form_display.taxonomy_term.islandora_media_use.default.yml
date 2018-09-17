@@ -2,27 +2,27 @@ langcode: en
 status: true
 dependencies:
   config:
-  - field.field.taxonomy_term.islandora_media_use.field_external_uri_single
-  - taxonomy.vocabulary.islandora_media_use
+    - field.field.taxonomy_term.islandora_media_use.field_external_uri
+    - taxonomy.vocabulary.islandora_media_use
   module:
-  - link
-  - path
-  - text
+    - link
+    - path
+    - text
 id: taxonomy_term.islandora_media_use.default
 targetEntityType: taxonomy_term
 bundle: islandora_media_use
 mode: default
 content:
   description:
-    type: text_textfield
-    weight: 0
+    type: text_textarea
+    weight: 1
     region: content
     settings:
-      size: 60
       placeholder: ''
+      rows: 5
     third_party_settings: {  }
-  field_external_uri_single:
-    weight: 31
+  field_external_uri:
+    weight: 2
     settings:
       placeholder_url: ''
       placeholder_title: ''
@@ -31,14 +31,14 @@ content:
     region: content
   langcode:
     type: language_select
-    weight: 2
+    weight: 3
     region: content
     settings:
       include_locked: true
     third_party_settings: {  }
   name:
     type: string_textfield
-    weight: -5
+    weight: 0
     region: content
     settings:
       size: 60
@@ -46,11 +46,13 @@ content:
     third_party_settings: {  }
   path:
     type: path
-    weight: 30
+    weight: 5
     region: content
     settings: {  }
     third_party_settings: {  }
   translation:
-    weight: 10
+    weight: 4
     region: content
+    settings: {  }
+    third_party_settings: {  }
 hidden: {  }

@@ -2,16 +2,13 @@ langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.node.field_access_terms
-    - node.type.islandora_object
+    - field.storage.media.field_access_terms
+    - media.type.video
     - taxonomy.vocabulary.islandora_access
-  enforced:
-    module:
-      - islandora_demo
-id: node.islandora_object.field_access_terms
+id: media.video.field_access_terms
 field_name: field_access_terms
-entity_type: node
-bundle: islandora_object
+entity_type: media
+bundle: video
 label: 'Access terms'
 description: 'Terms that define who has access to view/edit this resource.'
 required: false
