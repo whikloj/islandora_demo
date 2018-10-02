@@ -13,7 +13,9 @@ dependencies:
     - image.style.thumbnail
     - media.type.image
   module:
+    - entity_browser_entity_form
     - image
+    - inline_entity_form
     - path
 id: media.image.default
 targetEntityType: media
@@ -41,14 +43,23 @@ content:
     weight: 1
     region: content
   field_media_of:
-    type: entity_reference_autocomplete
+    type: inline_entity_form_complex
     weight: 4
     region: content
     settings:
+      form_mode: default
+      label_singular: ''
+      label_plural: ''
+      allow_new: true
+      allow_existing: true
       match_operator: CONTAINS
-      size: 60
-      placeholder: ''
-    third_party_settings: {  }
+      override_labels: false
+      collapsible: false
+      collapsed: false
+      allow_duplicate: false
+    third_party_settings:
+      entity_browser_entity_form:
+        entity_browser_id: browse_content
   field_media_use:
     type: options_select
     weight: 2

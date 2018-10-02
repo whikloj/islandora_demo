@@ -3,16 +3,105 @@ status: true
 dependencies:
   config:
     - field.field.node.islandora_object.field_access_terms
+    - field.field.node.islandora_object.field_alternative_title
     - field.field.node.islandora_object.field_description
     - field.field.node.islandora_object.field_display_hints
+    - field.field.node.islandora_object.field_edtf_date
+    - field.field.node.islandora_object.field_edtf_date_created
+    - field.field.node.islandora_object.field_edtf_date_issued
+    - field.field.node.islandora_object.field_extent
+    - field.field.node.islandora_object.field_identifier
+    - field.field.node.islandora_object.field_linked_agent
     - field.field.node.islandora_object.field_member_of
     - field.field.node.islandora_object.field_model
+    - field.field.node.islandora_object.field_resource_type
+    - field.field.node.islandora_object.field_rights
+    - field.field.node.islandora_object.field_subject
     - node.type.islandora_object
   enforced:
     module:
       - islandora_demo
   module:
+    - controlled_access_terms
+    - entity_browser_entity_form
+    - field_group
+    - inline_entity_form
     - path
+third_party_settings:
+  field_group:
+    group_title:
+      children:
+        - title
+        - field_alternative_title
+      parent_name: ''
+      weight: 0
+      format_type: fieldset
+      format_settings:
+        id: ''
+        classes: ''
+        description: ''
+        required_fields: true
+      label: Title
+    group_structure:
+      children:
+        - field_model
+        - field_member_of
+        - field_access_terms
+        - field_display_hints
+        - field_identifier
+      parent_name: ''
+      weight: 1
+      format_type: fieldset
+      format_settings:
+        label: Structural
+        description: ''
+        required_fields: true
+        id: ''
+        classes: ''
+      label: Structural
+    group_temporal:
+      children:
+        - field_edtf_date_created
+        - field_edtf_date_issued
+        - field_edtf_date
+      parent_name: ''
+      weight: 3
+      format_type: fieldset
+      format_settings:
+        id: ''
+        classes: ''
+        description: ''
+        required_fields: true
+      label: Temporal
+    group_related:
+      children:
+        - field_linked_agent
+        - field_subject
+      parent_name: ''
+      weight: 4
+      format_type: fieldset
+      format_settings:
+        id: ''
+        classes: ''
+        description: ''
+        required_fields: true
+      label: Related
+    group_descriptive:
+      children:
+        - field_description
+        - field_resource_type
+        - langcode
+        - field_extent
+        - field_rights
+      parent_name: ''
+      weight: 2
+      format_type: fieldset
+      format_settings:
+        id: ''
+        classes: ''
+        description: ''
+        required_fields: true
+      label: Descriptive
 id: node.islandora_object.default
 targetEntityType: node
 bundle: islandora_object
@@ -20,71 +109,176 @@ mode: default
 content:
   created:
     type: datetime_timestamp
-    weight: 3
+    weight: 15
     region: content
     settings: {  }
     third_party_settings: {  }
   field_access_terms:
-    weight: 11
+    type: options_buttons
+    weight: 4
+    region: content
     settings: {  }
     third_party_settings: {  }
-    type: options_buttons
+  field_alternative_title:
+    type: string_textfield
+    weight: 1
     region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
   field_description:
     type: string_textarea
-    weight: 1
+    weight: 6
     region: content
     settings:
       rows: 5
       placeholder: ''
     third_party_settings: {  }
   field_display_hints:
-    weight: 10
+    type: options_buttons
+    weight: 5
+    region: content
     settings: {  }
     third_party_settings: {  }
-    type: options_buttons
+  field_edtf_date:
+    type: text_edtf
+    weight: 7
     region: content
-  field_member_of:
-    weight: 12
     settings:
-      match_operator: CONTAINS
+      strict_dates: false
+      intervals: false
+    third_party_settings: {  }
+  field_edtf_date_created:
+    type: text_edtf
+    weight: 5
+    region: content
+    settings:
+      strict_dates: false
+      intervals: false
+    third_party_settings: {  }
+  field_edtf_date_issued:
+    type: text_edtf
+    weight: 6
+    region: content
+    settings:
+      strict_dates: false
+      intervals: false
+    third_party_settings: {  }
+  field_extent:
+    type: string_textfield
+    weight: 9
+    region: content
+    settings:
       size: 60
       placeholder: ''
     third_party_settings: {  }
-    type: entity_reference_autocomplete
+  field_identifier:
+    type: string_textfield
+    weight: 6
     region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_linked_agent:
+    weight: 4
+    settings:
+      match_operator: CONTAINS
+      size: '60'
+      placeholder: ''
+    third_party_settings: {  }
+    type: typed_relation_default
+    region: content
+  field_member_of:
+    type: inline_entity_form_complex
+    weight: 3
+    region: content
+    settings:
+      form_mode: default
+      label_singular: ''
+      label_plural: ''
+      allow_new: true
+      allow_existing: true
+      match_operator: CONTAINS
+      override_labels: false
+      collapsible: false
+      collapsed: false
+      allow_duplicate: false
+    third_party_settings:
+      entity_browser_entity_form:
+        entity_browser_id: browse_content
   field_model:
-    weight: 9
+    type: options_select
+    weight: 2
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_resource_type:
+    weight: 7
     settings: {  }
     third_party_settings: {  }
     type: options_select
     region: content
+  field_rights:
+    type: string_textfield
+    weight: 10
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_subject:
+    weight: 5
+    settings:
+      form_mode: default
+      label_singular: ''
+      label_plural: ''
+      allow_new: true
+      allow_existing: true
+      match_operator: CONTAINS
+      override_labels: false
+      collapsible: false
+      collapsed: false
+      allow_duplicate: false
+    third_party_settings:
+      entity_browser_entity_form:
+        entity_browser_id: _none
+    type: inline_entity_form_complex
+    region: content
+  langcode:
+    type: language_select
+    weight: 8
+    region: content
+    settings:
+      include_locked: true
+    third_party_settings: {  }
   path:
     type: path
-    weight: 6
+    weight: 11
     region: content
     settings: {  }
     third_party_settings: {  }
   promote:
     type: boolean_checkbox
+    weight: 13
+    region: content
     settings:
       display_label: true
-    weight: 4
-    region: content
     third_party_settings: {  }
   status:
     type: boolean_checkbox
     settings:
       display_label: true
-    weight: 7
+    weight: 12
     region: content
     third_party_settings: {  }
   sticky:
     type: boolean_checkbox
+    weight: 16
+    region: content
     settings:
       display_label: true
-    weight: 5
-    region: content
     third_party_settings: {  }
   title:
     type: string_textfield
@@ -95,23 +289,17 @@ content:
       placeholder: ''
     third_party_settings: {  }
   translation:
-    weight: 8
+    weight: 10
     region: content
     settings: {  }
     third_party_settings: {  }
   uid:
     type: entity_reference_autocomplete
-    weight: 2
+    weight: 14
+    region: content
     settings:
       match_operator: CONTAINS
       size: 60
       placeholder: ''
-    region: content
     third_party_settings: {  }
-  url_redirects:
-    weight: 9
-    region: content
-    settings: {  }
-    third_party_settings: {  }
-hidden:
-  langcode: true
+hidden: {  }

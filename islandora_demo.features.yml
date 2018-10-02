@@ -7,15 +7,7 @@ excluded:
   - core.entity_view_display.node.article.rss
   - core.entity_view_display.node.article.teaser
   - core.entity_view_display.node.page.teaser
-  - core.entity_view_display.taxonomy_term.tags.default
   - views.view.archive
   - views.view.frontpage
   - views.view.taxonomy_term
-  - core.base_field_override.taxonomy_term.tags.changed
-  - core.base_field_override.taxonomy_term.tags.description
-  - core.base_field_override.taxonomy_term.tags.name
-  - core.base_field_override.taxonomy_term.tags.path
-  - language.content_settings.taxonomy_term.tags
-  - core.entity_form_display.taxonomy_term.tags.default
-  - taxonomy.vocabulary.tags
 required: true
